@@ -30,7 +30,7 @@ export class AppComponent {
                 innerRadius: '60%',
                 outerRadius: '90%',
                 shape: 'arc',
-                borderWidth: 0,
+                borderColor: 'transparent',
             }
         },
         tooltip: {
@@ -62,15 +62,20 @@ export class AppComponent {
                 dataLabels: {
                     style: {'fontSize': '36px', 'font-family': 'Muli, Helvetica Neue, Arial, sans-serif', 'fontWeight': 'light'},
                     y: -50,
-                    borderWidth: 0
+                    borderWidth: 0,
+                    formatter: centeredGaugeFormatter,
                 }
             }
         },
         series: [
             {
-                data: [100]
+                data: [10]
             }
         ]
     });
   }
+}
+
+export function centeredGaugeFormatter(): number | string {
+    return Math.abs((this.y - 50) * 2);
 }
