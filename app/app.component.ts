@@ -6,10 +6,10 @@ import { Chart } from 'angular-highcharts';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  stock: Chart;
+  gauge: Chart;
 
   ngOnInit() {
-    this.stock = new Chart({
+    this.gauge = new Chart({
         chart: {
             type: 'solidgauge',
             height: '100%',
