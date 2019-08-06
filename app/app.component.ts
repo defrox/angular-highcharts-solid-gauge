@@ -7,6 +7,8 @@ import { Chart } from 'angular-highcharts';
 })
 export class AppComponent {
   gauge: Chart;
+  gaugeNoFormat: Chart;
+  gaugeInline: Chart;
 
   ngOnInit() {
         this.gaugeNoFormat = new Chart({
@@ -129,6 +131,71 @@ export class AppComponent {
                     y: -50,
                     borderWidth: 0,
                     formatter: centeredGaugeFormatter,
+                }
+            }
+        },
+        series: [
+            {
+                data: [10]
+            }
+        ]
+    });
+
+    this.gaugeInline = new Chart({
+        chart: {
+            type: 'solidgauge',
+            height: '100%',
+            width: 350,
+            backgroundColor: 'transparent'
+        },
+        credits: {enabled: false},
+        title: {
+            text: 'Inline',
+            y: 250,
+            style: {'font-family': 'Muli, Helvetica Neue, Arial, sans-serif', 'font-size': '36px'}
+        },
+        pane: {
+            startAngle: -90,
+            endAngle: 90,
+            background: {
+                backgroundColor: 'white',
+                innerRadius: '60%',
+                outerRadius: '90%',
+                shape: 'arc',
+                borderColor: 'transparent',
+            }
+        },
+        tooltip: {
+            enabled: false
+        },
+        yAxis: {
+            stops: [
+                [0.5, 'red'],
+                [1, 'green']
+            ],
+            length: 5,
+            lineWidth: 0,
+            minorTicks: false,
+            tickAmount: 0,
+            tickColor: 'transparent',
+            labels: {
+                enabled: false,
+            },
+            min: 0,
+            max: 100,
+            plotBands: [
+                { from: 0, to: 50, color: 'red', outerRadius: '132'},
+                { from: 50, to: 100, color: 'green', outerRadius: '132'},
+            ]
+        },
+        plotOptions: {
+            solidgauge: {
+                threshold: 50,
+                dataLabels: {
+                    style: {'fontSize': '36px', 'font-family': 'Muli, Helvetica Neue, Arial, sans-serif', 'fontWeight': 'light'},
+                    y: -50,
+                    borderWidth: 0,
+                    formatter: function (): number { return Math.abs(this.y - 50) * 2; },
                 }
             }
         },
