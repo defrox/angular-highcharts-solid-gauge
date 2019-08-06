@@ -195,7 +195,7 @@ export class AppComponent {
                     style: {'fontSize': '36px', 'font-family': 'Muli, Helvetica Neue, Arial, sans-serif', 'fontWeight': 'light'},
                     y: -50,
                     borderWidth: 0,
-                    formatter: function (): number { return Math.abs(this.y - 50) * 2; },
+                    formatter: function () { return Math.abs(this.y - 50) * 2 },
                 }
             }
         },
