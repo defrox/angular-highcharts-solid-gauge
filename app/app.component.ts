@@ -40,8 +40,10 @@ export class AppComponent {
         },
         yAxis: {
             stops: [
-                [0.5, 'red'],
-                [1, 'green']
+                [0, '#b0bec5'],
+                [0.5, '#b0bec5'],
+                [0.5, '#546e7a'],
+                [1, '#546e7a'],
             ],
             length: 5,
             lineWidth: 0,
@@ -54,8 +56,8 @@ export class AppComponent {
             min: -100,
             max: 100,
             plotBands: [
-                { from: -100, to: 0, color: 'red', outerRadius: '132'},
-                { from: 0, to: 100, color: 'green', outerRadius: '132'},
+                { from: -100, to: 0, color: '#b0bec5', outerRadius: '132'},
+                { from: 0, to: 100, color: '#546e7a', outerRadius: '132'},
             ]
         },
         plotOptions: {
@@ -65,13 +67,12 @@ export class AppComponent {
                     style: {'fontSize': '36px', 'font-family': 'Muli, Helvetica Neue, Arial, sans-serif', 'fontWeight': 'light'},
                     y: -50,
                     borderWidth: 0,
-                    formatter: centeredGaugeNoFormatter,
                 }
             }
         },
         series: [
             {
-                data: [-10]
+                data: [-100]
             }
         ]
     });
